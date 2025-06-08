@@ -3,104 +3,577 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>優惠活動 - WUBB</title>
-    <link rel="stylesheet" href="styles.css">
+    <meta name="description" content="WU88武財神娛樂城新會員首儲優惠活動，首次儲值即可獲得10%回饋加送新手禮金388，只需一倍流水即可託售。">
+    <meta name="keywords" content="wu88, 武財神, 首儲優惠, 新會員, 娛樂城, 回饋, 新手禮金, 優惠活動">
+    <title>新會員首儲優惠活動|WU88武財神娛樂城</title>
+    
+    <!-- Favicon設置 -->
+    <link rel="icon" type="image/x-icon" href="images/favicon_wu88.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="images/favicon_wu88.ico">
+    <link rel="apple-touch-icon" href="images/favicon_wu88.ico">
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Footer 四欄布局樣式 -->
+    <style>
+        .footer .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 30px;
+        }
+        
+        .footer .footer-column {
+            flex: 1;
+            min-width: 200px;
+            max-width: 300px;
+        }
+        
+        .footer .footer-column h3 {
+            color: #e6c555;
+            font-size: 18px;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+        
+        .footer .footer-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .footer .footer-links li {
+            margin-bottom: 8px;
+        }
+        
+        .footer .footer-links a {
+            color: #ccc;
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s ease;
+        }
+        
+        .footer .footer-links a:hover {
+            color: #e6c555;
+        }
+        
+        .footer .footer-logo img {
+            width: 120px;
+            height: auto;
+            margin-bottom: 15px;
+        }
+        
+        .footer .footer-logo p {
+            color: #ccc;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+        
+        .footer .footer-contact {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .footer .footer-contact li {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        
+        .footer .footer-contact i {
+            color: #e6c555;
+            margin-right: 10px;
+            font-size: 16px;
+        }
+        
+        .footer .contact-link {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer .contact-link:hover {
+            color: #e6c555;
+        }
+        
+        .footer .footer-bottom {
+            text-align: center;
+            padding: 20px 0;
+            border-top: 1px solid #333;
+            margin-top: 40px;
+        }
+        
+        .footer .footer-bottom p {
+            color: #999;
+            font-size: 14px;
+            margin: 0;
+        }
+        
+        /* 響應式設計 */
+        @media (max-width: 768px) {
+            .footer .footer-content {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .footer .footer-column {
+                max-width: 100%;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .footer .footer-content {
+                gap: 15px;
+            }
+            
+            .footer .footer-column h3 {
+                font-size: 16px;
+                margin-bottom: 10px;
+            }
+        }
+    </style>
 </head>
 <body>
     <!-- 導航欄 -->
     <nav class="navbar">
-        <!-- 保持與主頁相同的導航欄內容 -->
+        <div class="container">
+            <div class="logo">
+                <img src="images/logo.png" alt="Logo">
+            </div>
+            <div class="nav-links">
+                <a href="index.html#home">首頁</a>
+                <a href="index.html#games">遊戲種類</a>
+                <a href="index.html#features">平台特色</a>
+                <a href="index.html#promotion">優惠活動</a>
+                <a href="index.html#articles">小編文章專區</a>
+                <a href="index.html#contact">聯絡我們</a>
+            </div>
+            <div class="auth-buttons">
+                <a href="https://pc.wu88.live/?promotionId=SEO1689" target="_blank" rel="noopener noreferrer" class="login-btn">登入</a>
+                <a href="https://pc.wu88.live/user-login?promotionId=SEO1689" target="_blank" rel="noopener noreferrer" class="register-btn">註冊</a>
+            </div>
+            <div class="mobile-menu-btn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        <!-- 手機版登入註冊按鈕 -->
+        <div class="mobile-auth-buttons">
+            <a href="https://pc.wu88.live/?promotionId=SEO1689" target="_blank" rel="noopener noreferrer" class="mobile-login-btn">登入</a>
+            <a href="https://pc.wu88.live/user-login?promotionId=SEO1689" target="_blank" rel="noopener noreferrer" class="mobile-register-btn">註冊</a>
+        </div>
     </nav>
 
-    <!-- 優惠活動內容 -->
-    <div class="promotion-page-container">
-        <div class="container">
-            <h1 class="promotion-title">優惠活動</h1>
-            
-            <div class="promotion-content">
-                <div class="activity-card">
-                    <h2 class="activity-title">新會員首儲優惠</h2>
+    <!-- 頁面英雄區 -->
+    <div class="promotion-page">
+        <!-- 頁面標題區 -->
+        <div class="page-hero">
+            <div class="container">
+                <div class="hero-content">
+                    <nav class="breadcrumb">
+                        <a href="index.html"><i class="fas fa-home"></i> 首頁</a>
+                        <i class="fas fa-chevron-right"></i>
+                        <span>新會員首儲優惠</span>
+                    </nav>
                     
-                    <div class="activity-info">
-                        <h3>活動時間</h3>
-                        <p>暫定永久</p>
-                        
-                        <h3>活動內容</h3>
-                        <p>凡新會員首次儲值即可申請10%回饋外，額外加送新手禮金388，只需一倍流水即可託售。</p>
-                        
-                        <div class="bonus-table">
-                            <table>
-                                <thead>
-                                    <tr>
-                                        <th>新會員</th>
-                                        <th>贈送比例</th>
-                                        <th>彩金上限</th>
-                                        <th>需求流水</th>
-                                        <th>額外加贈新手禮</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>首筆儲值</td>
-                                        <td>10%</td>
-                                        <td>1000</td>
-                                        <td>1倍</td>
-                                        <td>388</td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                    <h1 class="page-title">
+                        <i class="fas fa-fire"></i>
+                        新會員首儲優惠活動
+                    </h1>
+                    
+                    <div class="hero-badges">
+                        <div class="badge hot">
+                            <i class="fas fa-fire"></i>
+                            <span>熱門活動</span>
                         </div>
-
-                        <div class="activity-rules">
-                            <h3>活動規則</h3>
-                            <ol>
-                                <li>新會員首次入款，尚未下注遊玩前，找line客服領取，待客服派彩後才能下注，若尚未派彩即下注視同放棄。</li>
-                                <li>首次儲值僅計算第一筆存款</li>
-                                <li>存款後有效投注額須達到(首儲門檻+存款金額10%+新手禮388)×有效洗碼(1倍)才能託售。
-                                    <ul>
-                                        <li>例：儲值2000 = (2000+200+388)*1=2588</li>
-                                        <li>例：儲值10000 = (10000+1000+388)*1=11388</li>
-                                    </ul>
-                                </li>
-                                <li class="important-notice">
-                                    <span class="highlight-text">⚠️ 如需申請請務必於下注前聯繫官網 Line客服ID：</span>
-                                    <a href="https://line.me/R/ti/p/@744owect" class="line-link highlight-link" target="_blank">@744owect</a>
-                                </li>
-                                <li>舊會員申請新帳號不適用本活動。</li>
-                            </ol>
+                        <div class="badge new">
+                            <i class="fas fa-star"></i>
+                            <span>新手限定</span>
                         </div>
-
-                        <div class="terms-conditions">
-                            <h3>WU88武財神規則與條款</h3>
-                            <ol>
-                                <li>領取優惠限制：禁止於任何遊戲館的【德州撲克】，【Black jack-21點】內投入，【賽車飛艇類彩票 單局限押7台率】。【體育賽事-禁止點數投入低於歐盤1.5賠率，亞盤0.5賠】。<br>若領取優惠並於上述館別進行遊戲或違規，WU88武財神online 保留取消或收回會員優惠彩點並扣除贈點的權利。</li>
-                                <li>會員不得於在真人娛樂/電子遊藝/彩票遊戲/無風險投入投入在運動遊戲，對沖或對打投入不計，未接受投入單/賽果為平的投入單。<br> 無風險投入包括在百家樂同時投入莊家、閒家，舉例：輪盤以及彩票中同時投入黑色+紅色、單+雙、大+小。<br>若以上違規投入經風控部門審查，將對會員進行優惠及贈點回收，嚴重至帳戶凍結，等相關措施。</li>
-                                <li>每位玩家、每戶、每一住址、每一電子信箱地址、每一電話號碼及IP地址只能享有一次優惠；若會員有重複申請帳號行為，公司保留取消或收回會員優惠彩點並扣除所賺取點數的權利。</li>
-                                <li>WU88武財神online的所有優惠特為玩家而設，如發現任何團體或個人，以不誠實方式套取贈點或任何威脅、濫用平台優惠等行為，公司保留凍結、取消該團體或個人帳戶及帳戶結餘的權利。</li>
-                                <li>若會員對活動有爭議時，為確保雙方利益，杜絕身份盜用行為，WU88武財神online有權要求會員向我們提供充足有效的文件，用以確認是否享有該優惠的資格。</li>
-                                <li>當參與優惠會員未能完全遵守，或違反、或濫用任何有關公司優惠或推廣的條款，又或我們有任何證據有任何團隊或個人投下一連串相關的點數投入，藉以造成無論賽果怎樣都可以確保可以從該贈點或其他推廣活動提供的優惠點數收穫，WU88武財神online保留權利向此團隊或個人停止、取消優惠或索回已支付的全部優惠贈點。</li>
-                                <li>WU88武財神online保留對活動的最終解釋權，以及在無通知的情況下修改、終止活動的權利，適用於所有優惠。</li>
-                            </ol>
+                        <div class="badge limited">
+                            <i class="fas fa-clock"></i>
+                            <span>永久活動</span>
                         </div>
                     </div>
                 </div>
             </div>
-            <!-- 添加返回按鈕容器 -->
-            <div class="back-home-container">
-                <a href="index.html" class="back-home-btn">
-                    <i class="fas fa-arrow-left"></i>
-                    返回首頁
-                </a>
+        </div>
+
+        <!-- 活動視覺展示區 -->
+        <div class="promotion-visual">
+            <div class="container">
+                <div class="visual-card">
+                    <img src="images/promotionnewmember.png" alt="新會員首儲優惠" class="promotion-banner">
+                    <div class="visual-overlay">
+                        <div class="highlight-text">
+                            <h2>首儲即送 10% + 388 新手禮金</h2>
+                            <p>新會員專屬優惠，最低門檻最高回饋</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 活動詳情區 -->
+        <div class="promotion-details">
+            <div class="container">
+                <!-- 活動資訊 -->
+                <section class="info-section">
+                    <div class="section-header">
+                        <h2><i class="fas fa-info-circle"></i> 活動資訊</h2>
+                    </div>
+                    <div class="info-grid">
+                        <div class="info-card">
+                            <div class="info-icon">
+                                <i class="fas fa-calendar-alt"></i>
+                            </div>
+                            <div class="info-content">
+                                <h3>活動時間</h3>
+                                <p>暫定永久活動</p>
+                            </div>
+                        </div>
+                        <div class="info-card">
+                            <div class="info-icon">
+                                <i class="fas fa-gift"></i>
+                            </div>
+                            <div class="info-content">
+                                <h3>優惠內容</h3>
+                                <p>首儲 10% + 新手禮金 388</p>
+                            </div>
+                        </div>
+                        <div class="info-card">
+                            <div class="info-icon">
+                                <i class="fas fa-recycle"></i>
+                            </div>
+                            <div class="info-content">
+                                <h3>流水要求</h3>
+                                <p>僅需 1 倍流水即可託售</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 優惠詳情 -->
+                <section class="content-section">
+                    <div class="section-header">
+                        <h2><i class="fas fa-chart-line"></i> 優惠詳情</h2>
+                        <p class="section-subtitle">新會員首次儲值即可申請10%回饋外，額外加送新手禮金388，只需一倍流水即可託售。</p>
+                    </div>
+                    
+                    <div class="mission-table-wrapper">
+                        <table class="mission-table">
+                            <thead>
+                                <tr>
+                                    <th>會員類型</th>
+                                    <th>回饋比例</th>
+                                    <th>彩金上限</th>
+                                    <th>流水要求</th>
+                                    <th>額外贈送</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="mission-row selected">
+                                    <td>
+                                        <div class="mission-badge premium">
+                                            <i class="fas fa-crown"></i>
+                                            新會員首儲
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="amount">10%</div>
+                                    </td>
+                                    <td>
+                                        <div class="reward premium">1,000</div>
+                                    </td>
+                                    <td>
+                                        <div class="flow">1 倍</div>
+                                    </td>
+                                    <td>
+                                        <div class="reward premium">388</div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- 活動亮點 -->
+                    <div class="mission-highlights">
+                        <div class="highlight-item">
+                            <i class="fas fa-bolt"></i>
+                            <span>低流水要求：僅需1倍流水</span>
+                        </div>
+                        <div class="highlight-item">
+                            <i class="fas fa-coins"></i>
+                            <span>雙重優惠：10%回饋+388新手禮</span>
+                        </div>
+                        <div class="highlight-item">
+                            <i class="fas fa-shield-alt"></i>
+                            <span>風險保障：官方監督安全可靠</span>
+                        </div>
+                        <div class="highlight-item">
+                            <i class="fas fa-headset"></i>
+                            <span>專業客服：24小時線上支援</span>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 活動規則 -->
+                <section class="rules-section">
+                    <div class="section-header">
+                        <h2><i class="fas fa-list-check"></i> 活動規則</h2>
+                    </div>
+                    <div class="rules-content">
+                        <div class="rule-card important">
+                            <div class="rule-header">
+                                <i class="fas fa-exclamation-triangle"></i>
+                                <h3>申請須知</h3>
+                            </div>
+                            <div class="rule-body">
+                                <p>新會員首次入款，<strong>尚未下注遊玩前</strong>，找Line客服領取，待客服派彩後才能下注，若尚未派彩即下注視同放棄。</p>
+                            </div>
+                        </div>
+
+                        <div class="rule-card">
+                            <div class="rule-header">
+                                <i class="fas fa-calculator"></i>
+                                <h3>計算方式</h3>
+                            </div>
+                            <div class="rule-body">
+                                <p>存款後有效投注額須達到 <strong>(首儲門檻+存款金額10%+新手禮388)×有效洗碼(1倍)</strong> 才能託售。</p>
+                                <ul>
+                                    <li>例：儲值2000 = (2000+200+388)×1 = 2,588</li>
+                                    <li>例：儲值10000 = (10000+1000+388)×1 = 11,388</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="rule-card warning">
+                            <div class="rule-header">
+                                <i class="fab fa-line"></i>
+                                <h3>客服聯繫</h3>
+                            </div>
+                            <div class="rule-body">
+                                <p><strong>⚠️ 如需申請請務必於下注前聯繫官網 Line客服ID：</strong></p>
+                                <p><a href="https://line.me/R/ti/p/@744owect" class="highlight-link" target="_blank">@744owect</a></p>
+                            </div>
+                        </div>
+
+                        <div class="rule-card restriction">
+                            <div class="rule-header">
+                                <i class="fas fa-user-slash"></i>
+                                <h3>限制條件</h3>
+                            </div>
+                            <div class="rule-body">
+                                <p>舊會員申請新帳號不適用本活動。首次儲值僅計算第一筆存款。</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 常見問題 -->
+                <section class="faq-section">
+                    <div class="section-header">
+                        <h2><i class="fas fa-question-circle"></i> 常見問題</h2>
+                    </div>
+                    <div class="faq-list">
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <h3>如何申請新會員首儲優惠？</h3>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="faq-answer">
+                                <p>首次儲值後，在尚未下注前聯繫Line客服 @744owect 申請，客服確認後會為您派發優惠。</p>
+                            </div>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <h3>流水要求如何計算？</h3>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="faq-answer">
+                                <p>流水要求 = (儲值金額 + 10%回饋 + 388新手禮) × 1倍，例如儲值1000元，流水要求為(1000+100+388)×1=1488元。</p>
+                            </div>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <h3>有哪些遊戲限制？</h3>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="faq-answer">
+                                <p>禁止在德州撲克、21點、賽車飛艇類彩票等指定遊戲中使用優惠，違規將收回優惠。</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 行動呼籲區 -->
+                <section class="cta-section">
+                    <div class="cta-card">
+                        <div class="cta-content">
+                            <h2>準備開始您的武財神之旅了嗎？</h2>
+                            <p>立即註冊享受新會員專屬優惠，豐厚回饋等您來拿！</p>
+                        </div>
+                        <div class="cta-buttons">
+                            <a href="https://pc.wu88.live/user-login?promotionId=SEO1689" target="_blank" rel="noopener noreferrer" class="cta-btn primary">
+                                <i class="fas fa-user-plus"></i>
+                                立即註冊
+                            </a>
+                            <a href="https://line.me/R/ti/p/@744owect" target="_blank" rel="noopener noreferrer" class="cta-btn secondary">
+                                <i class="fab fa-line"></i>
+                                聯繫客服
+                            </a>
+                        </div>
+                        <div class="cta-decoration">
+                            <i class="fas fa-coins"></i>
+                            <i class="fas fa-gem"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 免責聲明 -->
+                <section class="disclaimer-section">
+                    <div class="disclaimer-card">
+                        <h3><i class="fas fa-info-circle"></i> 重要聲明</h3>
+                        <p>WU88武財神online保留對活動的最終解釋權，以及在無通知的情況下修改、終止活動的權利。所有優惠活動均須遵守平台相關條款與規定。</p>
+                    </div>
+                </section>
+
+                <!-- 返回首頁按鈕 -->
+                <div class="back-home-container">
+                    <a href="index.html" class="back-home-btn">
+                        <i class="fas fa-arrow-left"></i>
+                        返回首頁
+                    </a>
+                </div>
             </div>
         </div>
     </div>
 
     <!-- Footer -->
     <footer class="footer">
-        <!-- 保持與主頁相同的 footer 內容 -->
+        <div class="container">
+            <div class="footer-content">
+                <!-- 左側區塊：Logo 和簡介 -->
+                <div class="footer-column">
+                    <div class="footer-logo">
+                        <img src="images/logo.png" alt="WU88武財神">
+                        <p>採用九州頂尖技術打造，為玩家提供穩定流暢的遊戲體驗。我們最重視客戶感受，確保每一次遊玩都能安心享受，盡情娛樂！</p>
+                    </div>
+                </div>
+
+                <!-- 中間區塊：快速連結 -->
+                <div class="footer-column">
+                    <h3>快速連結</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html#home">首頁</a></li>
+                        <li><a href="index.html#games">遊戲種類</a></li>
+                        <li><a href="index.html#features">平台特色</a></li>
+                        <li><a href="index.html#promotion">優惠活動</a></li>
+                        <li><a href="index.html#articles">小編文章專區</a></li>
+                        <li><a href="index.html#contact">聯絡我們</a></li>
+                    </ul>
+                </div>
+
+                <!-- 右側區塊：聯絡資訊 -->
+                <div class="footer-column">
+                    <h3>聯絡團隊Line客服</h3>
+                    <ul class="footer-contact">
+                        <li>
+                            <i class="fab fa-line"></i>
+                            <a href="https://line.me/R/ti/p/@744owect" target="_blank" rel="noopener noreferrer" class="contact-link">
+                                <span>LINE: @744owect</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- 武財神分站區塊 -->
+                <div class="footer-column footer-right">
+                    <h3>武財神各分站</h3>
+                    <ul class="footer-links">
+                        <li><a href="https://1wu88.com/" target="_blank">1-WU88武財神</a></li>
+                        <li><a href="https://anwu88.com/" target="_blank">2-WU88武財神</a></li>
+                        <li><a href="https://betwu88.com/" target="_blank">3-WU88武財神</a></li>
+                        <li><a href="https://biwu88.com/" target="_blank">4-WU88武財神</a></li>
+                        <li><a href="https://funwu88.com/" target="_blank">5-WU88武財神</a></li>
+                        <li><a href="https://gamewu88.com/" target="_blank">6-WU88武財神</a></li>
+                        <li><a href="https://gowu88.com/" target="_blank">7-WU88武財神</a></li>
+                        <li><a href="https://moneywu88.com/" target="_blank">8-WU88武財神</a></li>
+                        <li><a href="https://panwu88.com/" target="_blank">9-WU88武財神</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- 版權資訊 -->
+            <div class="footer-bottom">
+                <p>&copy; 2025 WU88武財神娛樂城. All rights reserved. 本站僅供成年人娛樂，請理性投注。</p>
+            </div>
+        </div>
     </footer>
 
     <script src="script.js"></script>
+    <script>
+        // FAQ 互動功能
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqItems = document.querySelectorAll('.faq-item');
+            
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                question.addEventListener('click', () => {
+                    // 切換當前項目的活躍狀態
+                    item.classList.toggle('active');
+                    
+                    // 關閉其他打開的FAQ項目
+                    faqItems.forEach(otherItem => {
+                        if (otherItem !== item) {
+                            otherItem.classList.remove('active');
+                        }
+                    });
+                });
+            });
+
+            // 為按鈕添加點擊事件處理
+            document.querySelectorAll('.auth-buttons a, .mobile-auth-buttons a').forEach(button => {
+                button.addEventListener('click', (e) => {
+                    // 防止默認行為
+                    e.preventDefault();
+                    // 直接打開新窗口
+                    window.open(button.href, '_blank', 'noopener,noreferrer');
+                });
+            });
+
+            // 移動端菜單功能
+            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+            const navLinks = document.querySelector('.nav-links');
+
+            if (mobileMenuBtn && navLinks) {
+                mobileMenuBtn.addEventListener('click', () => {
+                    mobileMenuBtn.classList.toggle('active');
+                    navLinks.classList.toggle('active');
+                });
+            }
+
+            // 平滑滾動到錨點
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html> 

@@ -1,0 +1,12 @@
+User-agent: *
+Allow: /
+
+# 允許抓取所有文件和目錄
+Allow: /images/
+Allow: /articles/
+
+# 指向網站地圖
+Sitemap: https://1wu88.com/sitemap.xml
+
+# 可選：設置抓取延遲（以秒為單位）
+Crawl-delay: 1 

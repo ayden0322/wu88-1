@@ -1,0 +1,50 @@
+/* 🔥 Banner輪播圖片被切到問題 - 專用修復檔案 */
+
+/* 確保Banner輪播圖片完整顯示，不被裁切 */
+.banner-slider .slide img {
+    /* 完全覆蓋所有之前的樣式 */
+    width: auto !important;
+    height: auto !important;
+    max-width: 85% !important;
+    max-height: 85% !important;
+    object-fit: contain !important;
+    object-position: center !important;
+    display: block !important;
+    margin: auto !important;
+    border-radius: 15px !important;
+    box-shadow: 
+        0 15px 35px rgba(0, 0, 0, 0.4),
+        0 5px 15px rgba(0, 0, 0, 0.2) !important;
+    transition: all 0.6s ease !important;
+    filter: brightness(0.9) contrast(1.1) !important;
+}
+
+.banner-slider .slide:hover img {
+    transform: scale(1.02) !important;
+    filter: brightness(1) contrast(1.2) !important;
+    box-shadow: 
+        0 20px 45px rgba(0, 0, 0, 0.5),
+        0 0 25px rgba(218, 165, 32, 0.2) !important;
+}
+
+/* 確保slide容器能夠正確顯示居中的圖片 */
+.banner-slider .slide {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 25px !important;
+    box-sizing: border-box !important;
+    background: linear-gradient(135deg, 
+        rgba(15, 15, 25, 0.4), 
+        rgba(25, 25, 35, 0.2)
+    ) !important;
+}
+
+/* 確保Banner輪播容器有適當的背景 */
+.banner-slider {
+    background: linear-gradient(135deg, #0f0f1a, #1a1a2e) !important;
+}
+
+.slides {
+    background: linear-gradient(135deg, #0f0f1a, #1a1a2e) !important;
+} 
