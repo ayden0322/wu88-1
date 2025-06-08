@@ -1015,6 +1015,16 @@ function initFAQ() {
         faqAnswer.style.maxHeight = '0';
         faqAnswer.style.overflow = 'hidden';
         faqAnswer.style.transition = 'max-height 0.3s ease';
+        
+        // 預設顯示"帳戶相關"分類的FAQ項目
+        const itemCategory = item.getAttribute('data-category');
+        if (itemCategory === 'account') {
+            item.style.display = 'block';
+            item.classList.add('show');
+        } else {
+            item.style.display = 'none';
+            item.classList.remove('show');
+        }
     });
 
     // 設置toggle圖標的初始轉換效果
