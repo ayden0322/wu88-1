@@ -8,82 +8,6 @@ window.addEventListener('scroll', function() {
     }
 });
 
-// 手機版選單切換
-const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-const navLinks = document.querySelector('.nav-links');
-const mobileAuthButtons = document.querySelector('.mobile-auth-buttons');
-
-mobileMenuBtn.addEventListener('click', function() {
-    navLinks.classList.toggle('active');
-    mobileMenuBtn.classList.toggle('active');
-    
-    // 控制手機版登入註冊按鈕的顯示
-    if (navLinks.classList.contains('active')) {
-        mobileAuthButtons.style.display = 'flex';
-        // 延遲動畫以配合選單開啟
-        setTimeout(() => {
-            mobileAuthButtons.style.opacity = '1';
-            mobileAuthButtons.style.transform = 'translateX(-50%) translateY(0)';
-        }, 300);
-    } else {
-        mobileAuthButtons.style.opacity = '0';
-        mobileAuthButtons.style.transform = 'translateX(-50%) translateY(20px)';
-        setTimeout(() => {
-            mobileAuthButtons.style.display = 'none';
-        }, 300);
-    }
-});
-
-// 平滑滾動效果
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        target.scrollIntoView({
-            behavior: 'smooth'
-        });
-        // 如果在手機版，點擊後關閉選單
-        if (navLinks.classList.contains('active')) {
-            navLinks.classList.remove('active');
-            mobileMenuBtn.classList.remove('active');
-            
-            // 隱藏手機版登入註冊按鈕
-            if (mobileAuthButtons) {
-                mobileAuthButtons.style.opacity = '0';
-                mobileAuthButtons.style.transform = 'translateX(-50%) translateY(20px)';
-                setTimeout(() => {
-                    mobileAuthButtons.style.display = 'none';
-                }, 300);
-            }
-        }
-    });
-});
-
-// 遊戲卡片動畫
-const gameCards = document.querySelectorAll('.game-card');
-gameCards.forEach(card => {
-    card.addEventListener('mouseenter', function() {
-        this.style.transform = 'translateY(-10px)';
-    });
-    card.addEventListener('mouseleave', function() {
-        this.style.transform = 'translateY(0)';
-    });
-});
-
-// 登入和註冊按鈕事件
-const loginBtn = document.querySelector('.login-btn');
-const registerBtn = document.querySelector('.register-btn');
-
-loginBtn.addEventListener('click', function() {
-    // 這裡可以添加登入表單的彈出視窗邏輯
-    alert('開啟登入表單');
-});
-
-registerBtn.addEventListener('click', function() {
-    // 這裡可以添加註冊表單的彈出視窗邏輯
-    alert('開啟註冊表單');
-});
-
 // 性能檢測工具
 class PerformanceDetector {
     constructor() {
@@ -587,29 +511,51 @@ function initGameButtons() {
 function initMobileMenu() {
     const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
     const navLinks = document.querySelector('.nav-links');
-    const mobileAuthButtons = document.querySelector('.mobile-auth-buttons');
+
+    console.log('初始化手機版選單...', {
+        mobileMenuBtn: !!mobileMenuBtn,
+        navLinks: !!navLinks
+    });
 
     if (mobileMenuBtn && navLinks) {
-        mobileMenuBtn.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-            mobileMenuBtn.classList.toggle('active');
+        // 移除可能存在的舊事件監聽器
+        const newMobileMenuBtn = mobileMenuBtn.cloneNode(true);
+        mobileMenuBtn.parentNode.replaceChild(newMobileMenuBtn, mobileMenuBtn);
+
+        newMobileMenuBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
             
-            // 控制手機版登入註冊按鈕的顯示
-            if (mobileAuthButtons) {
-                if (navLinks.classList.contains('active')) {
-                    mobileAuthButtons.style.display = 'flex';
-                    setTimeout(() => {
-                        mobileAuthButtons.style.opacity = '1';
-                        mobileAuthButtons.style.transform = 'translateX(-50%) translateY(0)';
-                    }, 300);
-                } else {
-                    mobileAuthButtons.style.opacity = '0';
-                    mobileAuthButtons.style.transform = 'translateX(-50%) translateY(20px)';
-                    setTimeout(() => {
-                        mobileAuthButtons.style.display = 'none';
-                    }, 300);
+            console.log('漢堡選單被點擊');
+            
+            navLinks.classList.toggle('active');
+            newMobileMenuBtn.classList.toggle('active');
+        });
+
+        // 平滑滾動效果和選單關閉
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                    
+                    // 如果在手機版，點擊後關閉選單
+                    if (navLinks.classList.contains('active')) {
+                        navLinks.classList.remove('active');
+                        newMobileMenuBtn.classList.remove('active');
+                    }
                 }
-            }
+            });
+        });
+
+        console.log('手機版選單初始化完成');
+    } else {
+        console.error('手機版選單元素未找到', {
+            mobileMenuBtn: !!mobileMenuBtn,
+            navLinks: !!navLinks
         });
     }
 }
@@ -876,7 +822,40 @@ document.addEventListener('DOMContentLoaded', () => {
     // 初始化其他功能
     initGameTabs();
     initGameButtons();
+    
+    // 優先初始化手機版選單
     initMobileMenu();
+    
+    // 初始化遊戲卡片動畫
+    const gameCards = document.querySelectorAll('.game-card');
+    gameCards.forEach(card => {
+        card.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-10px)';
+        });
+        card.addEventListener('mouseleave', function() {
+            this.style.transform = 'translateY(0)';
+        });
+    });
+
+    // 登入和註冊按鈕事件
+    const loginBtn = document.querySelector('.login-btn');
+    const registerBtn = document.querySelector('.register-btn');
+    
+    if (loginBtn) {
+        loginBtn.addEventListener('click', function(e) {
+            // 防止彈窗
+            e.preventDefault();
+            window.open(this.href, '_blank', 'noopener,noreferrer');
+        });
+    }
+
+    if (registerBtn) {
+        registerBtn.addEventListener('click', function(e) {
+            // 防止彈窗
+            e.preventDefault();
+            window.open(this.href, '_blank', 'noopener,noreferrer');
+        });
+    }
     
     // 初始化文章相關功能
     initArticleFilters();
@@ -892,18 +871,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-    // 平滑滾動效果
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                target.scrollIntoView({
-                    behavior: 'smooth'
-                });
-            }
-        });
-    });
+    // 平滑滾動效果已經在initMobileMenu中處理，避免重複
 
     // 優化後的滑鼠移動事件（提高機率讓效果更明顯）
     const throttledMouseMove = throttle((e) => {
@@ -1041,3 +1009,259 @@ document.addEventListener('DOMContentLoaded', () => {
         console.log('FAQ功能已初始化');
     }
 }); 
+
+// ================================================================
+// 修復缺失的函數定義 - 避免JavaScript錯誤
+// ================================================================
+
+// EnhancedBannerSystem 類別定義
+class EnhancedBannerSystem {
+    constructor() {
+        this.currentSlide = 0;
+        this.slides = [];
+        this.autoPlayInterval = null;
+        this.isPlaying = false;
+        this.init();
+    }
+
+    init() {
+        // 初始化輪播系統
+        const bannerContainer = document.querySelector('.banner-section');
+        if (!bannerContainer) {
+            console.warn('Banner container not found');
+            return;
+        }
+
+        this.slides = document.querySelectorAll('.banner-slide, .slide');
+        if (this.slides.length === 0) {
+            console.warn('No banner slides found');
+            return;
+        }
+
+        this.setupControls();
+        this.startAutoPlay();
+        console.log('Enhanced Banner System initialized with', this.slides.length, 'slides');
+    }
+
+    setupControls() {
+        // 設置導航控制
+        const prevBtn = document.querySelector('.prev-btn, .banner-prev');
+        const nextBtn = document.querySelector('.next-btn, .banner-next');
+
+        if (prevBtn) {
+            prevBtn.addEventListener('click', () => this.prevSlide());
+        }
+        if (nextBtn) {
+            nextBtn.addEventListener('click', () => this.nextSlide());
+        }
+
+        // 設置指示點
+        this.createDots();
+    }
+
+    createDots() {
+        const dotsContainer = document.querySelector('.banner-dots, .dots-container');
+        if (dotsContainer && this.slides.length > 1) {
+            dotsContainer.innerHTML = '';
+            for (let i = 0; i < this.slides.length; i++) {
+                const dot = document.createElement('span');
+                dot.classList.add('dot');
+                if (i === 0) dot.classList.add('active');
+                dot.addEventListener('click', () => this.goToSlide(i));
+                dotsContainer.appendChild(dot);
+            }
+        }
+    }
+
+    goToSlide(index) {
+        if (index < 0 || index >= this.slides.length) return;
+        
+        // 隱藏當前幻燈片
+        this.slides[this.currentSlide].classList.remove('active');
+        
+        // 顯示新幻燈片
+        this.currentSlide = index;
+        this.slides[this.currentSlide].classList.add('active');
+        
+        // 更新指示點
+        this.updateDots();
+    }
+
+    nextSlide() {
+        const nextIndex = (this.currentSlide + 1) % this.slides.length;
+        this.goToSlide(nextIndex);
+    }
+
+    prevSlide() {
+        const prevIndex = (this.currentSlide - 1 + this.slides.length) % this.slides.length;
+        this.goToSlide(prevIndex);
+    }
+
+    updateDots() {
+        const dots = document.querySelectorAll('.dot');
+        dots.forEach((dot, index) => {
+            dot.classList.toggle('active', index === this.currentSlide);
+        });
+    }
+
+    startAutoPlay() {
+        if (this.slides.length <= 1) return;
+        
+        this.autoPlayInterval = setInterval(() => {
+            this.nextSlide();
+        }, 5000); // 5秒切換一次
+        
+        this.isPlaying = true;
+    }
+
+    stopAutoPlay() {
+        if (this.autoPlayInterval) {
+            clearInterval(this.autoPlayInterval);
+            this.autoPlayInterval = null;
+            this.isPlaying = false;
+        }
+    }
+}
+
+// 文章相關函數定義
+function initArticleFilters() {
+    // 文章篩選功能
+    const filterButtons = document.querySelectorAll('.article-filter-btn, .filter-btn');
+    const articles = document.querySelectorAll('.article-item, .article-card');
+
+    if (filterButtons.length === 0 || articles.length === 0) {
+        console.log('Article filters not needed - no articles or filter buttons found');
+        return;
+    }
+
+    filterButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const filter = button.getAttribute('data-filter') || 'all';
+            
+            // 更新按鈕狀態
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+            button.classList.add('active');
+            
+            // 篩選文章
+            articles.forEach(article => {
+                const category = article.getAttribute('data-category') || '';
+                if (filter === 'all' || category === filter) {
+                    article.style.display = 'block';
+                    article.classList.add('show');
+                } else {
+                    article.style.display = 'none';
+                    article.classList.remove('show');
+                }
+            });
+        });
+    });
+
+    console.log('Article filters initialized');
+}
+
+function initLoadMoreArticles() {
+    // 載入更多文章功能
+    const loadMoreBtn = document.querySelector('.load-more-btn, .load-more-articles');
+    const articleContainer = document.querySelector('.articles-container, .article-grid');
+
+    if (!loadMoreBtn || !articleContainer) {
+        console.log('Load more articles not needed - elements not found');
+        return;
+    }
+
+    loadMoreBtn.addEventListener('click', () => {
+        // 模擬載入更多文章
+        loadMoreBtn.textContent = '載入中...';
+        loadMoreBtn.disabled = true;
+
+        setTimeout(() => {
+            loadMoreBtn.textContent = '載入更多文章';
+            loadMoreBtn.disabled = false;
+            console.log('More articles loaded (simulated)');
+        }, 1000);
+    });
+
+    console.log('Load more articles initialized');
+}
+
+function initArticleCardEffects() {
+    // 文章卡片效果
+    const articleCards = document.querySelectorAll('.article-card, .article-item');
+
+    articleCards.forEach(card => {
+        card.addEventListener('mouseenter', () => {
+            card.style.transform = 'translateY(-5px)';
+            card.style.boxShadow = '0 10px 25px rgba(0,0,0,0.2)';
+        });
+
+        card.addEventListener('mouseleave', () => {
+            card.style.transform = 'translateY(0)';
+            card.style.boxShadow = '';
+        });
+    });
+
+    if (articleCards.length > 0) {
+        console.log('Article card effects initialized for', articleCards.length, 'cards');
+    }
+}
+
+function initFeaturedArticleEffects() {
+    // 精選文章效果
+    const featuredArticles = document.querySelectorAll('.featured-article, .article-featured');
+
+    featuredArticles.forEach(article => {
+        // 添加特殊的懸停效果
+        article.addEventListener('mouseenter', () => {
+            article.style.transform = 'scale(1.02)';
+            article.style.transition = 'transform 0.3s ease';
+        });
+
+        article.addEventListener('mouseleave', () => {
+            article.style.transform = 'scale(1)';
+        });
+    });
+
+    if (featuredArticles.length > 0) {
+        console.log('Featured article effects initialized for', featuredArticles.length, 'articles');
+    }
+}
+
+function initArticleScrollAnimations() {
+    // 文章滾動動畫
+    const articleElements = document.querySelectorAll('.article-item, .article-card, .article-section');
+
+    if (articleElements.length === 0) {
+        console.log('Article scroll animations not needed - no article elements found');
+        return;
+    }
+
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('animate-in');
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+            }
+        });
+    }, observerOptions);
+
+    articleElements.forEach(element => {
+        // 設置初始狀態
+        element.style.opacity = '0';
+        element.style.transform = 'translateY(20px)';
+        element.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        
+        observer.observe(element);
+    });
+
+    console.log('Article scroll animations initialized for', articleElements.length, 'elements');
+}
+
+// ================================================================
+// 修復完成 - 所有缺失的函數已定義
+// ================================================================ 

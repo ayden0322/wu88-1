@@ -8,125 +8,588 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
-    <!-- Footer 四欄布局樣式 -->
+    <!-- 頁面專用樣式 -->
     <style>
-        .footer .footer-content {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            align-items: flex-start;
-            gap: 30px;
+        /* Cashback 頁面專用樣式 */
+        .cashback-container {
+            min-height: 100vh;
+            background: radial-gradient(ellipse at center, #000000 0%, #050508 25%, #0a0a0f 50%, #111118 75%, #060608 100%);
+            padding: 120px 0 80px;
+            position: relative;
+            overflow: hidden;
         }
-        
-        .footer .footer-column {
-            flex: 1;
-            min-width: 200px;
-            max-width: 300px;
+
+        .cashback-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(255, 215, 0, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(135, 206, 250, 0.06) 0%, transparent 50%),
+                radial-gradient(circle at 50% 90%, rgba(147, 112, 219, 0.05) 0%, transparent 40%);
+            z-index: -1;
+            pointer-events: none;
+            animation: backgroundGlow 8s ease-in-out infinite alternate;
         }
-        
-        .footer .footer-column h3 {
+
+        @keyframes backgroundGlow {
+            0% { opacity: 0.6; transform: scale(1); }
+            100% { opacity: 1; transform: scale(1.05); }
+        }
+
+        .cashback-title {
+            font-size: 48px;
             color: #e6c555;
-            font-size: 18px;
-            margin-bottom: 15px;
+            text-align: center;
+            margin-bottom: 50px;
             font-weight: bold;
+            text-shadow: 
+                0 0 20px rgba(230, 197, 85, 0.8),
+                0 0 40px rgba(230, 197, 85, 0.4),
+                0 0 60px rgba(230, 197, 85, 0.2);
+            position: relative;
         }
-        
-        .footer .footer-links {
-            list-style: none;
-            padding: 0;
-            margin: 0;
+
+        .cashback-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 200px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #e6c555, transparent);
+            border-radius: 2px;
+            box-shadow: 0 0 10px rgba(230, 197, 85, 0.6);
         }
-        
-        .footer .footer-links li {
-            margin-bottom: 8px;
+
+        .cashback-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
         }
-        
-        .footer .footer-links a {
-            color: #ccc;
-            text-decoration: none;
-            font-size: 14px;
-            transition: color 0.3s ease;
+
+        .cashback-card {
+            background: linear-gradient(145deg, 
+                rgba(26, 26, 26, 0.95) 0%, 
+                rgba(35, 35, 35, 0.95) 50%, 
+                rgba(26, 26, 26, 0.95) 100%);
+            border: 1px solid rgba(230, 197, 85, 0.3);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 40px;
+            backdrop-filter: blur(10px);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 
+                0 10px 30px rgba(0, 0, 0, 0.5),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
         }
-        
-        .footer .footer-links a:hover {
+
+        .cashback-card::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, 
+                rgba(230, 197, 85, 0.6) 0%, 
+                rgba(135, 206, 250, 0.4) 25%, 
+                rgba(147, 112, 219, 0.4) 50%, 
+                rgba(230, 197, 85, 0.6) 75%, 
+                rgba(135, 206, 250, 0.4) 100%);
+            border-radius: 22px;
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .cashback-card:hover::before {
+            opacity: 1;
+        }
+
+        .time-section, .bonus-section, .claim-section, .important-notice, .terms-section {
+            margin-bottom: 40px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid rgba(230, 197, 85, 0.2);
+        }
+
+        .time-section:last-child, .bonus-section:last-child, .claim-section:last-child, 
+        .important-notice:last-child, .terms-section:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .time-section h2, .bonus-section h2, .claim-section h2, .important-notice h2, .terms-section h2 {
             color: #e6c555;
-        }
-        
-        .footer .footer-logo img {
-            width: 120px;
-            height: auto;
-            margin-bottom: 15px;
-        }
-        
-        .footer .footer-logo p {
-            color: #ccc;
-            font-size: 14px;
-            line-height: 1.6;
-        }
-        
-        .footer .footer-contact {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-        
-        .footer .footer-contact li {
+            font-size: 28px;
+            margin-bottom: 20px;
             display: flex;
             align-items: center;
+            gap: 10px;
+            text-shadow: 0 0 15px rgba(230, 197, 85, 0.5);
+        }
+
+        .bonus-list {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0;
+        }
+
+        .bonus-list li {
+            background: rgba(230, 197, 85, 0.1);
+            border: 1px solid rgba(230, 197, 85, 0.3);
+            border-radius: 10px;
+            padding: 15px 20px;
             margin-bottom: 10px;
-        }
-        
-        .footer .footer-contact i {
-            color: #e6c555;
-            margin-right: 10px;
+            color: #ffffff;
             font-size: 16px;
+            position: relative;
+            transition: all 0.3s ease;
         }
-        
-        .footer .contact-link {
-            color: #ccc;
-            text-decoration: none;
-            transition: color 0.3s ease;
+
+        .bonus-list li::before {
+            content: '💰';
+            margin-right: 10px;
         }
-        
-        .footer .contact-link:hover {
+
+        .bonus-list li:hover {
+            background: rgba(230, 197, 85, 0.2);
+            border-color: rgba(230, 197, 85, 0.5);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(230, 197, 85, 0.3);
+        }
+
+                 .bonus-notice {
+             background: linear-gradient(135deg, 
+                 rgba(135, 206, 250, 0.15) 0%, 
+                 rgba(147, 112, 219, 0.15) 100%);
+             border: 1px solid rgba(135, 206, 250, 0.4);
+             border-radius: 20px;
+             padding: 25px;
+             margin-top: 25px;
+             position: relative;
+             overflow: hidden;
+             backdrop-filter: blur(10px);
+         }
+
+         .bonus-notice::before {
+             content: '';
+             position: absolute;
+             top: 0;
+             left: 0;
+             right: 0;
+             height: 3px;
+             background: linear-gradient(90deg, 
+                 rgba(135, 206, 250, 0.8) 0%, 
+                 rgba(147, 112, 219, 0.8) 50%, 
+                 rgba(135, 206, 250, 0.8) 100%);
+             border-radius: 20px 20px 0 0;
+         }
+
+         .notice-header {
+             display: flex;
+             align-items: center;
+             gap: 15px;
+             margin-bottom: 20px;
+             padding-bottom: 15px;
+             border-bottom: 1px solid rgba(135, 206, 250, 0.3);
+         }
+
+         .notice-icon {
+             width: 45px;
+             height: 45px;
+             background: linear-gradient(135deg, #87ceeb, #9370db);
+             border-radius: 50%;
+             display: flex;
+             align-items: center;
+             justify-content: center;
+             box-shadow: 0 0 15px rgba(135, 206, 250, 0.5);
+         }
+
+         .notice-icon i {
+             color: #ffffff;
+             font-size: 20px;
+         }
+
+         .notice-header h3 {
+             color: #87ceeb;
+             font-size: 22px;
+             margin: 0;
+             font-weight: bold;
+             text-shadow: 0 0 10px rgba(135, 206, 250, 0.5);
+         }
+
+         .notice-content {
+             display: flex;
+             flex-direction: column;
+             gap: 15px;
+         }
+
+         .notice-item {
+             display: flex;
+             align-items: flex-start;
+             gap: 15px;
+             padding: 15px;
+             background: rgba(255, 255, 255, 0.05);
+             border-radius: 12px;
+             border: 1px solid rgba(135, 206, 250, 0.2);
+             transition: all 0.3s ease;
+         }
+
+         .notice-item:hover {
+             background: rgba(135, 206, 250, 0.1);
+             border-color: rgba(135, 206, 250, 0.4);
+             transform: translateY(-2px);
+             box-shadow: 0 5px 15px rgba(135, 206, 250, 0.2);
+         }
+
+         .item-icon {
+             width: 35px;
+             height: 35px;
+             background: rgba(135, 206, 250, 0.2);
+             border: 1px solid rgba(135, 206, 250, 0.4);
+             border-radius: 8px;
+             display: flex;
+             align-items: center;
+             justify-content: center;
+             flex-shrink: 0;
+         }
+
+         .item-icon i {
+             color: #87ceeb;
+             font-size: 16px;
+         }
+
+         .item-text {
+             display: flex;
+             flex-direction: column;
+             gap: 5px;
+             flex: 1;
+         }
+
+         .item-title {
+             color: #87ceeb;
+             font-weight: bold;
+             font-size: 16px;
+             text-shadow: 0 0 8px rgba(135, 206, 250, 0.3);
+         }
+
+         .item-desc {
+             color: #ffffff;
+             font-size: 14px;
+             line-height: 1.5;
+             opacity: 0.9;
+         }
+
+        .highlight-text {
             color: #e6c555;
+            font-weight: bold;
+            text-shadow: 0 0 10px rgba(230, 197, 85, 0.5);
         }
-        
-        .footer .footer-bottom {
-            text-align: center;
-            padding: 20px 0;
-            border-top: 1px solid #333;
-            margin-top: 40px;
+
+        .platform-guide h3 {
+            color: #87ceeb;
+            font-size: 22px;
+            margin: 25px 0 15px 0;
+            text-shadow: 0 0 10px rgba(135, 206, 250, 0.5);
         }
-        
-        .footer .footer-bottom p {
-            color: #999;
+
+        .platform-guide ol {
+            counter-reset: step-counter;
+            list-style: none;
+            padding: 0;
+        }
+
+        .platform-guide ol li {
+            counter-increment: step-counter;
+            background: rgba(135, 206, 250, 0.1);
+            border: 1px solid rgba(135, 206, 250, 0.3);
+            border-radius: 10px;
+            padding: 15px 20px 15px 50px;
+            margin-bottom: 12px;
+            color: #ffffff;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .platform-guide ol li::before {
+            content: counter(step-counter);
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: #87ceeb;
+            color: #000;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
             font-size: 14px;
-            margin: 0;
+        }
+
+        .platform-guide ol li:hover {
+            background: rgba(135, 206, 250, 0.2);
+            border-color: rgba(135, 206, 250, 0.5);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(135, 206, 250, 0.3);
+        }
+
+        .important-notice ul, .terms-section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .important-notice li, .terms-section li {
+            background: rgba(220, 38, 127, 0.1);
+            border: 1px solid rgba(220, 38, 127, 0.3);
+            border-radius: 10px;
+            padding: 15px 20px;
+            margin-bottom: 15px;
+            color: #ffffff;
+            line-height: 1.6;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .important-notice li::before, .terms-section li::before {
+            content: '⚠️';
+            margin-right: 10px;
+        }
+
+        .restrictions h4 {
+            color: #dc3545;
+            font-size: 20px;
+            margin: 20px 0 15px 0;
+            text-shadow: 0 0 10px rgba(220, 53, 69, 0.5);
+        }
+
+        .other-terms h3 {
+            color: #28a745;
+            font-size: 22px;
+            margin: 30px 0 15px 0;
+            text-shadow: 0 0 10px rgba(40, 167, 69, 0.5);
+        }
+
+        .cashback-image {
+            text-align: center;
+            margin: 40px 0;
+        }
+
+        .instruction-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            border: 2px solid rgba(230, 197, 85, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .instruction-image:hover {
+            transform: scale(1.02);
+            border-color: rgba(230, 197, 85, 0.6);
+            box-shadow: 0 15px 40px rgba(230, 197, 85, 0.3);
+        }
+
+        .back-home-container {
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .back-home-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(135deg, #e6c555 0%, #d4af37 100%);
+            color: #000;
+            text-decoration: none;
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            box-shadow: 
+                0 8px 25px rgba(230, 197, 85, 0.4),
+                inset 0 1px 0 rgba(255, 255, 255, 0.3);
+        }
+
+        .back-home-btn:hover {
+            background: linear-gradient(135deg, #d4af37 0%, #b8941f 100%);
+            transform: translateY(-3px);
+            box-shadow: 
+                0 12px 35px rgba(230, 197, 85, 0.6),
+                inset 0 1px 0 rgba(255, 255, 255, 0.4);
+        }
+
+        .back-home-btn i {
+            transition: transform 0.3s ease;
+        }
+
+        .back-home-btn:hover i {
+            transform: translateX(-5px);
         }
         
         /* 響應式設計 */
         @media (max-width: 768px) {
-            .footer .footer-content {
-                flex-direction: column;
-                gap: 20px;
+            .cashback-container {
+                padding: 100px 0 60px;
             }
-            
-            .footer .footer-column {
-                max-width: 100%;
+
+            .cashback-title {
+                font-size: 32px;
+                margin-bottom: 30px;
+            }
+
+            .cashback-card {
+                padding: 30px 20px;
+                margin-bottom: 30px;
+            }
+
+            .time-section h2, .bonus-section h2, .claim-section h2, 
+            .important-notice h2, .terms-section h2 {
+                font-size: 24px;
+            }
+
+            .platform-guide h3 {
+                font-size: 20px;
+            }
+
+            .platform-guide ol li {
+                padding: 12px 15px 12px 45px;
+            }
+
+            .back-home-btn {
+                padding: 12px 25px;
+                font-size: 16px;
             }
         }
         
         @media (max-width: 480px) {
-            .footer .footer-content {
-                gap: 15px;
+            .cashback-title {
+                font-size: 28px;
             }
-            
-            .footer .footer-column h3 {
-                font-size: 16px;
-                margin-bottom: 10px;
+
+            .cashback-card {
+                padding: 20px 15px;
             }
-        }
+
+            .time-section h2, .bonus-section h2, .claim-section h2, 
+            .important-notice h2, .terms-section h2 {
+                font-size: 22px;
+                flex-direction: column;
+                gap: 5px;
+            }
+
+                         .bonus-list li, .platform-guide ol li, .important-notice li, .terms-section li {
+                 padding: 12px 15px;
+                 font-size: 14px;
+             }
+
+             .bonus-notice {
+                 padding: 20px 15px;
+                 margin-top: 20px;
+             }
+
+             .notice-header {
+                 gap: 12px;
+                 margin-bottom: 15px;
+                 padding-bottom: 12px;
+             }
+
+             .notice-icon {
+                 width: 40px;
+                 height: 40px;
+             }
+
+             .notice-header h3 {
+                 font-size: 20px;
+             }
+
+             .notice-item {
+                 padding: 12px;
+                 gap: 12px;
+             }
+
+             .item-icon {
+                 width: 30px;
+                 height: 30px;
+             }
+
+             .item-title {
+                 font-size: 15px;
+             }
+
+             .item-desc {
+                 font-size: 13px;
+             }
+
+            .platform-guide ol li {
+                padding-left: 40px;
+            }
+
+                         .platform-guide ol li::before {
+                 width: 22px;
+                 height: 22px;
+                 font-size: 12px;
+                 left: 12px;
+             }
+
+             .bonus-notice {
+                 padding: 15px 12px;
+                 margin-top: 15px;
+             }
+
+             .notice-header {
+                 flex-direction: column;
+                 align-items: flex-start;
+                 gap: 8px;
+                 margin-bottom: 12px;
+                 padding-bottom: 10px;
+             }
+
+             .notice-icon {
+                 width: 35px;
+                 height: 35px;
+             }
+
+             .notice-header h3 {
+                 font-size: 18px;
+             }
+
+             .notice-content {
+                 gap: 12px;
+             }
+
+             .notice-item {
+                 padding: 10px;
+                 gap: 10px;
+             }
+
+             .item-icon {
+                 width: 28px;
+                 height: 28px;
+             }
+
+             .item-icon i {
+                 font-size: 14px;
+             }
+
+             .item-title {
+                 font-size: 14px;
+             }
+
+             .item-desc {
+                 font-size: 12px;
+             }
+         }
     </style>
 </head>
 <body>
@@ -154,7 +617,7 @@
                  </div>
         </div>
         <!-- 手機版登入註冊按鈕 -->
-        <div class="mobile-auth-buttons">
+        <div class="mobile-responsive-auth-buttons">
             <a href="https://pc.wu88.live/?promotionId=SEO1689" target="_blank" rel="noopener noreferrer" class="mobile-login-btn">登入</a>
             <a href="https://pc.wu88.live/user-login?promotionId=SEO1689" target="_blank" rel="noopener noreferrer" class="mobile-register-btn">註冊</a>
         </div>
@@ -181,12 +644,33 @@
                             <li>投注達 5,888 元：贈送 88 元彩金</li>
                             <li>投注達 68,888 元：贈送 188 元彩金</li>
                         </ul>
-                        <div class="notice-box">
-                            <h3>注意事項：</h3>
-                            <ul>
-                                <li>每日可申請一次簽到彩金，需 當日申請，逾時不補發。</li>
-                                <li>活動贈送的彩金需滿足 <span class="highlight-text">1 倍流水</span> 即可提款。</li>
-                            </ul>
+                        <div class="bonus-notice">
+                            <div class="notice-header">
+                                <div class="notice-icon">
+                                    <i class="fas fa-info-circle"></i>
+                                </div>
+                                <h3>重要提醒</h3>
+                            </div>
+                            <div class="notice-content">
+                                <div class="notice-item">
+                                    <div class="item-icon">
+                                        <i class="fas fa-clock"></i>
+                                    </div>
+                                    <div class="item-text">
+                                        <span class="item-title">申請時效</span>
+                                        <span class="item-desc">每日可申請一次簽到彩金，需當日申請，逾時不補發</span>
+                                    </div>
+                                </div>
+                                <div class="notice-item">
+                                    <div class="item-icon">
+                                        <i class="fas fa-coins"></i>
+                                    </div>
+                                    <div class="item-text">
+                                        <span class="item-title">流水要求</span>
+                                        <span class="item-desc">活動贈送的彩金需滿足 <strong style="color: #e6c555; font-weight: bold;">1 倍流水</strong> 即可提款</span>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
@@ -265,65 +749,490 @@
         </div>
     </div>
 
-    <!-- Footer -->
+    <!-- Footer Section -->
     <footer class="footer">
+        <!-- 頂部霓虹燈光效果 -->
+        <div class="footer-neon-top">
+            <div class="neon-lines">
+                <div class="neon-line line-1"></div>
+                <div class="neon-line line-2"></div>
+                <div class="neon-line line-3"></div>
+            </div>
+            <div class="floating-symbols">
+                <div class="symbol symbol-1"><i class="fas fa-diamond"></i></div>
+                <div class="symbol symbol-2"><i class="fas fa-crown"></i></div>
+                <div class="symbol symbol-3"><i class="fas fa-star"></i></div>
+                <div class="symbol symbol-4"><i class="fas fa-coins"></i></div>
+                <div class="symbol symbol-5"><i class="fas fa-gem"></i></div>
+            </div>
+        </div>
+        
+        <div class="footer-main">
         <div class="container">
+                <!-- 頂部主要內容區 -->
             <div class="footer-content">
-                <!-- 左側區塊：Logo 和簡介 -->
-                <div class="footer-column">
-                    <div class="footer-logo">
-                        <img src="images/logo.png" alt="WUBB Logo">
-                        <p>最優質的線上博弈平台，提供安全可靠的遊戲環境</p>
+                    <!-- 左側：品牌介紹區 -->
+                    <div class="footer-left">
+                        <div class="footer-brand">
+                            <div class="brand-header">
+                                <div class="brand-logo">
+                                    <img src="images/logo.png" alt="WU88武財神娛樂城">
+                                    <div class="logo-glow"></div>
+                                </div>
+                                <div class="brand-info">
+                                    <h3 class="brand-title">WU88武財神娛樂城</h3>
+                                    <div class="brand-slogan">頂級娛樂 · 安全可靠</div>
+                                </div>
+                            </div>
+                            
+                            <p class="brand-description">
+                                採用九州頂尖技術打造，為玩家提供穩定流暢的遊戲體驗。我們最重視客戶感受，確保每一次遊玩都能安心享受，盡情娛樂！
+                            </p>
+                            
+                            <div class="brand-features">
+                                <div class="feature-item">
+                                    <div class="feature-icon">
+                                        <i class="fas fa-shield-alt"></i>
+                                    </div>
+                                    <div class="feature-text">
+                                        <span class="feature-title">安全保障</span>
+                                        <span class="feature-desc">頂級加密技術</span>
+                                    </div>
+                                </div>
+                                <div class="feature-item">
+                                    <div class="feature-icon">
+                                        <i class="fas fa-clock"></i>
+                                    </div>
+                                    <div class="feature-text">
+                                        <span class="feature-title">24H服務</span>
+                                        <span class="feature-desc">全年無休客服</span>
+                                    </div>
+                                </div>
+                                <div class="feature-item">
+                                    <div class="feature-icon">
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                    <div class="feature-text">
+                                        <span class="feature-title">優質體驗</span>
+                                        <span class="feature-desc">流暢遊戲體驗</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 中間：導航連結區 -->
+                    <div class="footer-center">
+                        <div class="nav-section">
+                            <div class="nav-column">
+                                <h4 class="nav-title">
+                                    <i class="fas fa-compass"></i>
+                                    網站導覽
+                                </h4>
+                                <ul class="nav-links">
+                                    <li><a href="index.html#home"><i class="fas fa-home"></i>首頁</a></li>
+                                    <li><a href="index.html#games"><i class="fas fa-gamepad"></i>遊戲種類</a></li>
+                                    <li><a href="index.html#features"><i class="fas fa-crown"></i>平台特色</a></li>
+                                    <li><a href="index.html#promotion"><i class="fas fa-gift"></i>優惠活動</a></li>
+                                    <li><a href="index.html#articles"><i class="fas fa-newspaper"></i>文章專區</a></li>
+                                </ul>
+                            </div>
+                            
+                            <div class="nav-column">
+                                <h4 class="nav-title">
+                                    <i class="fas fa-info-circle"></i>
+                                    服務資訊
+                                </h4>
+                                <ul class="nav-links">
+                                    <li><a href="index.html#contact"><i class="fas fa-headset"></i>聯絡客服</a></li>
+                                    <li><a href="privacy-policy.html"><i class="fas fa-file-shield"></i>隱私權政策</a></li>
+                                    <li><a href="#"><i class="fas fa-handshake"></i>服務條款</a></li>
+                                    <li><a href="#"><i class="fas fa-question-circle"></i>常見問題</a></li>
+                                    <li><a href="#"><i class="fas fa-download"></i>APP下載</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 右側：聯絡資訊區 -->
+                    <div class="footer-right">
+                        <div class="contact-section">
+                            <h4 class="contact-title">
+                                <i class="fab fa-line"></i>
+                                客服聯絡
+                            </h4>
+                            
+                            <div class="contact-main">
+                                <div class="contact-item">
+                                    <div class="contact-icon">
+                                        <i class="fab fa-line"></i>
+                                    </div>
+                                    <div class="contact-details">
+                                        <div class="contact-label">LINE 官方客服</div>
+                                        <a href="https://line.me/R/ti/p/@744owect" target="_blank" rel="noopener noreferrer" class="contact-value">
+                                            @744owect
+                                        </a>
+                                        <div class="contact-status">
+                                            <span class="status-dot"></span>
+                                            <span class="status-text">24小時線上服務</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="contact-features">
+                                <div class="contact-feature">
+                                    <i class="fas fa-lightning-bolt"></i>
+                                    <span>快速回應</span>
+                                </div>
+                                <div class="contact-feature">
+                                    <i class="fas fa-user-shield"></i>
+                                    <span>專業服務</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-                <!-- 中間區塊：快速連結 -->
-                <div class="footer-column">
-                    <h3>快速連結</h3>
-                    <ul class="footer-links">
-                        <li><a href="index.html#home">首頁</a></li>
-                        <li><a href="index.html#games">遊戲種類</a></li>
-                        <li><a href="index.html#promotion">優惠活動</a></li>
-                        <li><a href="index.html#contact">聯絡我們</a></li>
-                        <li><a href="privacy-policy.html">隱私權政策</a></li>
-                    </ul>
+                <!-- 中間分隔線與數據統計 -->
+                <div class="footer-divider">
+                    <div class="divider-line">
+                        <div class="divider-glow"></div>
+                    </div>
+                    <div class="footer-stats">
+                        <div class="stat-item">
+                            <div class="stat-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <div class="stat-content">
+                                <div class="stat-number">100,000+</div>
+                                <div class="stat-label">活躍會員</div>
+                            </div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-icon">
+                                <i class="fas fa-gamepad"></i>
+                            </div>
+                            <div class="stat-content">
+                                <div class="stat-number">500+</div>
+                                <div class="stat-label">精選遊戲</div>
+                            </div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-icon">
+                                <i class="fas fa-trophy"></i>
+                            </div>
+                            <div class="stat-content">
+                                <div class="stat-number">99.9%</div>
+                                <div class="stat-label">勝率保證</div>
+                            </div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="stat-content">
+                                <div class="stat-number">24/7</div>
+                                <div class="stat-label">全天服務</div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
-                <!-- 右側區塊：聯絡資訊 -->
-                <div class="footer-column">
-                    <h3>聯絡團隊Line客服</h3>
-                    <ul class="footer-contact">
-                        <li>
-                            <i class="fab fa-line"></i>
-                            <a href="https://line.me/R/ti/p/@744owect" target="_blank" rel="noopener noreferrer" class="contact-link">
-                                <span>LINE: @744owect</span>
+                <!-- 分站連結區 -->
+                <div class="footer-sites">
+                    <div class="sites-container">
+                        <div class="sites-header">
+                            <h4 class="sites-title">
+                                <i class="fas fa-network-wired"></i>
+                                武財神鏡像站點
+                            </h4>
+                            <p class="sites-subtitle">多重入口，確保您隨時暢玩無阻</p>
+                            <div class="sites-badge">
+                                <i class="fas fa-shield-check"></i>
+                                <span>官方認證</span>
+                            </div>
+                        </div>
+                        
+                        <div class="sites-grid">
+                            <div class="sites-row">
+                                <a href="https://1wu88.com/" target="_blank" class="site-card">
+                                    <div class="card-glow"></div>
+                                    <div class="site-number">01</div>
+                                    <div class="site-content">
+                                        <div class="site-name">WU88 主站</div>
+                                        <div class="site-url">1wu88.com</div>
+                                    </div>
+                                    <div class="site-status online">
+                                        <div class="status-dot"></div>
+                                        <span>在線</span>
+                                    </div>
+                                    <div class="site-action">
+                                        <i class="fas fa-external-link-alt"></i>
+                                    </div>
+                                </a>
+                                
+                                <a href="https://anwu88.com/" target="_blank" class="site-card">
+                                    <div class="card-glow"></div>
+                                    <div class="site-number">02</div>
+                                    <div class="site-content">
+                                        <div class="site-name">WU88 分站</div>
+                                        <div class="site-url">anwu88.com</div>
+                                    </div>
+                                    <div class="site-status online">
+                                        <div class="status-dot"></div>
+                                        <span>在線</span>
+                                    </div>
+                                    <div class="site-action">
+                                        <i class="fas fa-external-link-alt"></i>
+                                    </div>
+                                </a>
+                                
+                                <a href="https://betwu88.com/" target="_blank" class="site-card">
+                                    <div class="card-glow"></div>
+                                    <div class="site-number">03</div>
+                                    <div class="site-content">
+                                        <div class="site-name">WU88 分站</div>
+                                        <div class="site-url">betwu88.com</div>
+                                    </div>
+                                    <div class="site-status online">
+                                        <div class="status-dot"></div>
+                                        <span>在線</span>
+                                    </div>
+                                    <div class="site-action">
+                                        <i class="fas fa-external-link-alt"></i>
+                                    </div>
+                                </a>
+                            </div>
+                            
+                            <div class="sites-row">
+                                <a href="https://biwu88.com/" target="_blank" class="site-card">
+                                    <div class="card-glow"></div>
+                                    <div class="site-number">04</div>
+                                    <div class="site-content">
+                                        <div class="site-name">WU88 分站</div>
+                                        <div class="site-url">biwu88.com</div>
+                                    </div>
+                                    <div class="site-status online">
+                                        <div class="status-dot"></div>
+                                        <span>在線</span>
+                                    </div>
+                                    <div class="site-action">
+                                        <i class="fas fa-external-link-alt"></i>
+                                    </div>
+                                </a>
+                                
+                                <a href="https://funwu88.com/" target="_blank" class="site-card">
+                                    <div class="card-glow"></div>
+                                    <div class="site-number">05</div>
+                                    <div class="site-content">
+                                        <div class="site-name">WU88 分站</div>
+                                        <div class="site-url">funwu88.com</div>
+                                    </div>
+                                    <div class="site-status online">
+                                        <div class="status-dot"></div>
+                                        <span>在線</span>
+                                    </div>
+                                    <div class="site-action">
+                                        <i class="fas fa-external-link-alt"></i>
+                                    </div>
+                                </a>
+                                
+                                <a href="https://gamewu88.com/" target="_blank" class="site-card">
+                                    <div class="card-glow"></div>
+                                    <div class="site-number">06</div>
+                                    <div class="site-content">
+                                        <div class="site-name">WU88 分站</div>
+                                        <div class="site-url">gamewu88.com</div>
+                                    </div>
+                                    <div class="site-status online">
+                                        <div class="status-dot"></div>
+                                        <span>在線</span>
+                                    </div>
+                                    <div class="site-action">
+                                        <i class="fas fa-external-link-alt"></i>
+                                    </div>
+                                </a>
+                            </div>
+                            
+                            <div class="sites-row">
+                                <a href="https://gowu88.com/" target="_blank" class="site-card">
+                                    <div class="card-glow"></div>
+                                    <div class="site-number">07</div>
+                                    <div class="site-content">
+                                        <div class="site-name">WU88 分站</div>
+                                        <div class="site-url">gowu88.com</div>
+                                    </div>
+                                    <div class="site-status online">
+                                        <div class="status-dot"></div>
+                                        <span>在線</span>
+                                    </div>
+                                    <div class="site-action">
+                                        <i class="fas fa-external-link-alt"></i>
+                                    </div>
+                                </a>
+                                
+                                <a href="https://moneywu88.com/" target="_blank" class="site-card">
+                                    <div class="card-glow"></div>
+                                    <div class="site-number">08</div>
+                                    <div class="site-content">
+                                        <div class="site-name">WU88 分站</div>
+                                        <div class="site-url">moneywu88.com</div>
+                                    </div>
+                                    <div class="site-status online">
+                                        <div class="status-dot"></div>
+                                        <span>在線</span>
+                                    </div>
+                                    <div class="site-action">
+                                        <i class="fas fa-external-link-alt"></i>
+                                    </div>
+                                </a>
+                                
+                                <a href="https://panwu88.com/" target="_blank" class="site-card">
+                                    <div class="card-glow"></div>
+                                    <div class="site-number">09</div>
+                                    <div class="site-content">
+                                        <div class="site-name">WU88 分站</div>
+                                        <div class="site-url">panwu88.com</div>
+                                    </div>
+                                    <div class="site-status online">
+                                        <div class="status-dot"></div>
+                                        <span>在線</span>
+                                    </div>
+                                    <div class="site-action">
+                                        <i class="fas fa-external-link-alt"></i>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 底部版權區 -->
+        <div class="footer-bottom">
+            <div class="bottom-gradient"></div>
+            <div class="container">
+                <div class="bottom-content">
+                    <div class="bottom-left">
+                        <div class="copyright-info">
+                            <div class="copyright-main">
+                                <div class="copyright-icon">
+                                    <i class="fas fa-shield-check"></i>
+                                </div>
+                                <div class="copyright-text">
+                                    <div class="copyright-title">© 2025 WU88武財神娛樂城</div>
+                                    <div class="copyright-subtitle">版權所有 · 保留一切權利</div>
+                                </div>
+                            </div>
+                            <div class="copyright-warning">
+                                <i class="fas fa-exclamation-triangle"></i>
+                                <span>本網站僅供娛樂，請理性遊戲，未滿18歲禁止進入</span>
+                            </div>
+                        </div>
+                        
+                        <div class="bottom-links">
+                            <a href="#" class="bottom-link">
+                                <i class="fas fa-file-contract"></i>
+                                <span>使用條款</span>
                             </a>
-                        </li>
-                    </ul>
+                            <a href="privacy-policy.html" class="bottom-link">
+                                <i class="fas fa-user-shield"></i>
+                                <span>隱私政策</span>
+                            </a>
+                            <a href="#" class="bottom-link">
+                                <i class="fas fa-balance-scale"></i>
+                                <span>責任博彩</span>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="bottom-center">
+                        <div class="certification-badges">
+                            <div class="badge-item">
+                                <div class="badge-icon">
+                                    <i class="fas fa-certificate"></i>
+                                </div>
+                                <div class="badge-text">
+                                    <div class="badge-title">官方認證</div>
+                                    <div class="badge-desc">合法經營</div>
+                                </div>
+                            </div>
+                            <div class="badge-item">
+                                <div class="badge-icon">
+                                    <i class="fas fa-lock"></i>
+                                </div>
+                                <div class="badge-text">
+                                    <div class="badge-title">安全加密</div>
+                                    <div class="badge-desc">SSL保護</div>
+                                </div>
+                            </div>
+                            <div class="badge-item">
+                                <div class="badge-icon">
+                                    <i class="fas fa-award"></i>
+                                </div>
+                                <div class="badge-text">
+                                    <div class="badge-title">優質服務</div>
+                                    <div class="badge-desc">24H客服</div>
+                                </div>
+                            </div>
+                        </div>
                 </div>
                 
-                <!-- 武財神分站區塊 -->
-                <div class="footer-column footer-right">
-                    <h3>武財神各分站</h3>
-                    <ul class="footer-links">
-                        <li><a href="https://1wu88.com/" target="_blank">1-WU88武財神</a></li>
-                        <li><a href="https://anwu88.com/" target="_blank">2-WU88武財神</a></li>
-                        <li><a href="https://betwu88.com/" target="_blank">3-WU88武財神</a></li>
-                        <li><a href="https://biwu88.com/" target="_blank">4-WU88武財神</a></li>
-                        <li><a href="https://funwu88.com/" target="_blank">5-WU88武財神</a></li>
-                        <li><a href="https://gamewu88.com/" target="_blank">6-WU88武財神</a></li>
-                        <li><a href="https://gowu88.com/" target="_blank">7-WU88武財神</a></li>
-                        <li><a href="https://moneywu88.com/" target="_blank">8-WU88武財神</a></li>
-                        <li><a href="https://panwu88.com/" target="_blank">9-WU88武財神</a></li>
-                    </ul>
+                    <div class="bottom-right">
+                        <div class="cta-section">
+                            <div class="cta-text">
+                                <div class="cta-title">準備好開始了嗎？</div>
+                                <div class="cta-subtitle">立即加入武財神大家庭</div>
+                            </div>
+                            <div class="cta-buttons">
+                                <a href="https://pc.wu88.live/?promotionId=SEO1689" target="_blank" rel="noopener noreferrer" class="cta-btn primary">
+                                    <div class="btn-icon">
+                                        <i class="fas fa-rocket"></i>
+                                    </div>
+                                    <div class="btn-content">
+                                        <span class="btn-text">立即遊戲</span>
+                                        <span class="btn-subtext">開始贏錢</span>
+                                    </div>
+                                    <div class="btn-arrow">
+                                        <i class="fas fa-arrow-right"></i>
+                                    </div>
+                                </a>
+                                <a href="https://line.me/R/ti/p/@744owect" target="_blank" rel="noopener noreferrer" class="cta-btn secondary">
+                                    <div class="btn-icon">
+                                        <i class="fab fa-line"></i>
+                                    </div>
+                                    <div class="btn-content">
+                                        <span class="btn-text">客服諮詢</span>
+                                        <span class="btn-subtext">即時幫助</span>
+                                    </div>
+                                    <div class="btn-arrow">
+                                        <i class="fas fa-arrow-right"></i>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 </div>
             </div>
 
-            <!-- 版權資訊 -->
-            <div class="footer-bottom">
-                <p>&copy; 2025 Wu88武財神娛樂城. All rights reserved.</p>
+        <!-- 背景裝飾與效果 -->
+        <div class="footer-effects">
+            <div class="sparkle-effect">
+                <div class="sparkle s1"></div>
+                <div class="sparkle s2"></div>
+                <div class="sparkle s3"></div>
+                <div class="sparkle s4"></div>
+                <div class="sparkle s5"></div>
+                <div class="sparkle s6"></div>
+                <div class="sparkle s7"></div>
+                <div class="sparkle s8"></div>
             </div>
         </div>
     </footer>
+
+    <script src="script.js"></script>
 </body>
 </html> 

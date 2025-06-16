@@ -7,127 +7,6 @@
     <link rel="icon" type="image/x-icon" href="images/favicon_wu88.ico">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    
-    <!-- Footer 四欄布局樣式 -->
-    <style>
-        .footer .footer-content {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            align-items: flex-start;
-            gap: 30px;
-        }
-        
-        .footer .footer-column {
-            flex: 1;
-            min-width: 200px;
-            max-width: 300px;
-        }
-        
-        .footer .footer-column h3 {
-            color: #e6c555;
-            font-size: 18px;
-            margin-bottom: 15px;
-            font-weight: bold;
-        }
-        
-        .footer .footer-links {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-        
-        .footer .footer-links li {
-            margin-bottom: 8px;
-        }
-        
-        .footer .footer-links a {
-            color: #ccc;
-            text-decoration: none;
-            font-size: 14px;
-            transition: color 0.3s ease;
-        }
-        
-        .footer .footer-links a:hover {
-            color: #e6c555;
-        }
-        
-        .footer .footer-logo img {
-            width: 120px;
-            height: auto;
-            margin-bottom: 15px;
-        }
-        
-        .footer .footer-logo p {
-            color: #ccc;
-            font-size: 14px;
-            line-height: 1.6;
-        }
-        
-        .footer .footer-contact {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-        
-        .footer .footer-contact li {
-            display: flex;
-            align-items: center;
-            margin-bottom: 10px;
-        }
-        
-        .footer .footer-contact i {
-            color: #e6c555;
-            margin-right: 10px;
-            font-size: 16px;
-        }
-        
-        .footer .contact-link {
-            color: #ccc;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-        
-        .footer .contact-link:hover {
-            color: #e6c555;
-        }
-        
-        .footer .footer-bottom {
-            text-align: center;
-            padding: 20px 0;
-            border-top: 1px solid #333;
-            margin-top: 40px;
-        }
-        
-        .footer .footer-bottom p {
-            color: #999;
-            font-size: 14px;
-            margin: 0;
-        }
-        
-        /* 響應式設計 */
-        @media (max-width: 768px) {
-            .footer .footer-content {
-                flex-direction: column;
-                gap: 20px;
-            }
-            
-            .footer .footer-column {
-                max-width: 100%;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            .footer .footer-content {
-                gap: 15px;
-            }
-            
-            .footer .footer-column h3 {
-                font-size: 16px;
-                margin-bottom: 10px;
-            }
-        }
-    </style>
 </head>
 <body>
     <!-- 導航欄 -->
@@ -147,14 +26,14 @@
                 <a href="https://pc.wu88.live/?promotionId=SEO1689" target="_blank" rel="noopener noreferrer" class="login-btn">登入</a>
                 <a href="https://pc.wu88.live/user-login?promotionId=SEO1689" target="_blank" rel="noopener noreferrer" class="register-btn">註冊</a>
             </div>
-                    <div class="mobile-menu-btn">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
+            <div class="mobile-menu-btn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
         </div>
         <!-- 手機版登入註冊按鈕 -->
-        <div class="mobile-auth-buttons">
+        <div class="mobile-responsive-auth-buttons">
             <a href="https://pc.wu88.live/?promotionId=SEO1689" target="_blank" rel="noopener noreferrer" class="mobile-login-btn">登入</a>
             <a href="https://pc.wu88.live/user-login?promotionId=SEO1689" target="_blank" rel="noopener noreferrer" class="mobile-register-btn">註冊</a>
         </div>
@@ -170,7 +49,7 @@
                     <!-- 活動對象 -->
                     <div class="target-section">
                         <h2>🎯 活動對象</h2>
-                        <p>武財神娛樂城全體會員</p>
+                        <p>WU88武財神娛樂城全體會員</p>
                     </div>
 
                     <!-- 活動時間 -->
@@ -315,65 +194,510 @@
         </div>
     </div>
 
-    <!-- Footer -->
+    <!-- Footer Section -->
     <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <!-- 左側區塊：Logo 和簡介 -->
-                <div class="footer-column">
-                    <div class="footer-logo">
-                        <img src="images/logo.png" alt="WUBB Logo">
-                        <p>最優質的線上博弈平台，提供安全可靠的遊戲環境</p>
+        <!-- 頂部霓虹燈光效果 -->
+        <div class="footer-neon-top">
+            <div class="neon-lines">
+                <div class="neon-line line-1"></div>
+                <div class="neon-line line-2"></div>
+                <div class="neon-line line-3"></div>
+            </div>
+            <div class="floating-symbols">
+                <div class="symbol symbol-1"><i class="fas fa-diamond"></i></div>
+                <div class="symbol symbol-2"><i class="fas fa-crown"></i></div>
+                <div class="symbol symbol-3"><i class="fas fa-star"></i></div>
+                <div class="symbol symbol-4"><i class="fas fa-coins"></i></div>
+                <div class="symbol symbol-5"><i class="fas fa-gem"></i></div>
+            </div>
+        </div>
+        
+        <div class="footer-main">
+            <div class="container">
+                <!-- 頂部主要內容區 -->
+                <div class="footer-content">
+                    <!-- 左側：品牌介紹區 -->
+                    <div class="footer-left">
+                        <div class="footer-brand">
+                            <div class="brand-header">
+                                <div class="brand-logo">
+                                    <img src="images/logo.png" alt="WU88武財神娛樂城">
+                                    <div class="logo-glow"></div>
+                                </div>
+                                <div class="brand-info">
+                                    <h3 class="brand-title">WU88武財神娛樂城</h3>
+                                    <div class="brand-slogan">頂級娛樂 · 安全可靠</div>
+                                </div>
+                            </div>
+                            
+                            <p class="brand-description">
+                                採用九州頂尖技術打造，為玩家提供穩定流暢的遊戲體驗。我們最重視客戶感受，確保每一次遊玩都能安心享受，盡情娛樂！
+                            </p>
+                            
+                            <div class="brand-features">
+                                <div class="feature-item">
+                                    <div class="feature-icon">
+                                        <i class="fas fa-shield-alt"></i>
+                                    </div>
+                                    <div class="feature-text">
+                                        <span class="feature-title">安全保障</span>
+                                        <span class="feature-desc">頂級加密技術</span>
+                                    </div>
+                                </div>
+                                <div class="feature-item">
+                                    <div class="feature-icon">
+                                        <i class="fas fa-clock"></i>
+                                    </div>
+                                    <div class="feature-text">
+                                        <span class="feature-title">24H服務</span>
+                                        <span class="feature-desc">全年無休客服</span>
+                                    </div>
+                                </div>
+                                <div class="feature-item">
+                                    <div class="feature-icon">
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                    <div class="feature-text">
+                                        <span class="feature-title">優質體驗</span>
+                                        <span class="feature-desc">流暢遊戲體驗</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 中間：導航連結區 -->
+                    <div class="footer-center">
+                        <div class="nav-section">
+                            <div class="nav-column">
+                                <h4 class="nav-title">
+                                    <i class="fas fa-compass"></i>
+                                    網站導覽
+                                </h4>
+                                <ul class="nav-links">
+                                    <li><a href="index.html#home"><i class="fas fa-home"></i>首頁</a></li>
+                                    <li><a href="index.html#games"><i class="fas fa-gamepad"></i>遊戲種類</a></li>
+                                    <li><a href="index.html#features"><i class="fas fa-crown"></i>平台特色</a></li>
+                                    <li><a href="index.html#promotion"><i class="fas fa-gift"></i>優惠活動</a></li>
+                                    <li><a href="index.html#articles"><i class="fas fa-newspaper"></i>文章專區</a></li>
+                                </ul>
+                            </div>
+                            
+                            <div class="nav-column">
+                                <h4 class="nav-title">
+                                    <i class="fas fa-info-circle"></i>
+                                    服務資訊
+                                </h4>
+                                <ul class="nav-links">
+                                    <li><a href="index.html#contact"><i class="fas fa-headset"></i>聯絡客服</a></li>
+                                    <li><a href="privacy-policy.html"><i class="fas fa-file-shield"></i>隱私權政策</a></li>
+                                    <li><a href="#"><i class="fas fa-handshake"></i>服務條款</a></li>
+                                    <li><a href="#"><i class="fas fa-question-circle"></i>常見問題</a></li>
+                                    <li><a href="#"><i class="fas fa-download"></i>APP下載</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 右側：聯絡資訊區 -->
+                    <div class="footer-right">
+                        <div class="contact-section">
+                            <h4 class="contact-title">
+                                <i class="fab fa-line"></i>
+                                客服聯絡
+                            </h4>
+                            
+                            <div class="contact-main">
+                                <div class="contact-item">
+                                    <div class="contact-icon">
+                                        <i class="fab fa-line"></i>
+                                    </div>
+                                    <div class="contact-details">
+                                        <div class="contact-label">LINE 官方客服</div>
+                                        <a href="https://line.me/R/ti/p/@744owect" target="_blank" rel="noopener noreferrer" class="contact-value">
+                                            @744owect
+                                        </a>
+                                        <div class="contact-status">
+                                            <span class="status-dot"></span>
+                                            <span class="status-text">24小時線上服務</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="contact-features">
+                                <div class="contact-feature">
+                                    <i class="fas fa-lightning-bolt"></i>
+                                    <span>快速回應</span>
+                                </div>
+                                <div class="contact-feature">
+                                    <i class="fas fa-user-shield"></i>
+                                    <span>專業服務</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-                <!-- 中間區塊：快速連結 -->
-                <div class="footer-column">
-                    <h3>快速連結</h3>
-                    <ul class="footer-links">
-                        <li><a href="index.html#home">首頁</a></li>
-                        <li><a href="index.html#games">遊戲種類</a></li>
-                        <li><a href="index.html#promotion">優惠活動</a></li>
-                        <li><a href="index.html#contact">聯絡我們</a></li>
-                        <li><a href="privacy-policy.html">隱私權政策</a></li>
-                    </ul>
+                <!-- 中間分隔線與數據統計 -->
+                <div class="footer-divider">
+                    <div class="divider-line">
+                        <div class="divider-glow"></div>
+                    </div>
+                    <div class="footer-stats">
+                        <div class="stat-item">
+                            <div class="stat-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <div class="stat-content">
+                                <div class="stat-number">100,000+</div>
+                                <div class="stat-label">活躍會員</div>
+                            </div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-icon">
+                                <i class="fas fa-gamepad"></i>
+                            </div>
+                            <div class="stat-content">
+                                <div class="stat-number">500+</div>
+                                <div class="stat-label">精選遊戲</div>
+                            </div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-icon">
+                                <i class="fas fa-trophy"></i>
+                            </div>
+                            <div class="stat-content">
+                                <div class="stat-number">99.9%</div>
+                                <div class="stat-label">勝率保證</div>
+                            </div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="stat-content">
+                                <div class="stat-number">24/7</div>
+                                <div class="stat-label">全天服務</div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
-                <!-- 右側區塊：聯絡資訊 -->
-                <div class="footer-column">
-                    <h3>聯絡團隊Line客服</h3>
-                    <ul class="footer-contact">
-                        <li>
-                            <i class="fab fa-line"></i>
-                            <a href="https://line.me/R/ti/p/@744owect" target="_blank" rel="noopener noreferrer" class="contact-link">
-                                <span>LINE: @744owect</span>
-                            </a>
-                        </li>
-                    </ul>
+                <!-- 分站連結區 -->
+                <div class="footer-sites">
+                    <div class="sites-container">
+                        <div class="sites-header">
+                            <h4 class="sites-title">
+                                <i class="fas fa-network-wired"></i>
+                                武財神鏡像站點
+                            </h4>
+                            <p class="sites-subtitle">多重入口，確保您隨時暢玩無阻</p>
+                            <div class="sites-badge">
+                                <i class="fas fa-shield-check"></i>
+                                <span>官方認證</span>
+                            </div>
+                        </div>
+                        
+                        <div class="sites-grid">
+                            <div class="sites-row">
+                                <a href="https://1wu88.com/" target="_blank" class="site-card">
+                                    <div class="card-glow"></div>
+                                    <div class="site-number">01</div>
+                                    <div class="site-content">
+                                        <div class="site-name">WU88 主站</div>
+                                        <div class="site-url">1wu88.com</div>
+                                    </div>
+                                    <div class="site-status online">
+                                        <div class="status-dot"></div>
+                                        <span>在線</span>
+                                    </div>
+                                    <div class="site-action">
+                                        <i class="fas fa-external-link-alt"></i>
+                                    </div>
+                                </a>
+                                
+                                <a href="https://anwu88.com/" target="_blank" class="site-card">
+                                    <div class="card-glow"></div>
+                                    <div class="site-number">02</div>
+                                    <div class="site-content">
+                                        <div class="site-name">WU88 分站</div>
+                                        <div class="site-url">anwu88.com</div>
+                                    </div>
+                                    <div class="site-status online">
+                                        <div class="status-dot"></div>
+                                        <span>在線</span>
+                                    </div>
+                                    <div class="site-action">
+                                        <i class="fas fa-external-link-alt"></i>
+                                    </div>
+                                </a>
+                                
+                                <a href="https://betwu88.com/" target="_blank" class="site-card">
+                                    <div class="card-glow"></div>
+                                    <div class="site-number">03</div>
+                                    <div class="site-content">
+                                        <div class="site-name">WU88 分站</div>
+                                        <div class="site-url">betwu88.com</div>
+                                    </div>
+                                    <div class="site-status online">
+                                        <div class="status-dot"></div>
+                                        <span>在線</span>
+                                    </div>
+                                    <div class="site-action">
+                                        <i class="fas fa-external-link-alt"></i>
+                                    </div>
+                                </a>
+                            </div>
+                            
+                            <div class="sites-row">
+                                <a href="https://biwu88.com/" target="_blank" class="site-card">
+                                    <div class="card-glow"></div>
+                                    <div class="site-number">04</div>
+                                    <div class="site-content">
+                                        <div class="site-name">WU88 分站</div>
+                                        <div class="site-url">biwu88.com</div>
+                                    </div>
+                                    <div class="site-status online">
+                                        <div class="status-dot"></div>
+                                        <span>在線</span>
+                                    </div>
+                                    <div class="site-action">
+                                        <i class="fas fa-external-link-alt"></i>
+                                    </div>
+                                </a>
+                                
+                                <a href="https://funwu88.com/" target="_blank" class="site-card">
+                                    <div class="card-glow"></div>
+                                    <div class="site-number">05</div>
+                                    <div class="site-content">
+                                        <div class="site-name">WU88 分站</div>
+                                        <div class="site-url">funwu88.com</div>
+                                    </div>
+                                    <div class="site-status online">
+                                        <div class="status-dot"></div>
+                                        <span>在線</span>
+                                    </div>
+                                    <div class="site-action">
+                                        <i class="fas fa-external-link-alt"></i>
+                                    </div>
+                                </a>
+                                
+                                <a href="https://gamewu88.com/" target="_blank" class="site-card">
+                                    <div class="card-glow"></div>
+                                    <div class="site-number">06</div>
+                                    <div class="site-content">
+                                        <div class="site-name">WU88 分站</div>
+                                        <div class="site-url">gamewu88.com</div>
+                                    </div>
+                                    <div class="site-status online">
+                                        <div class="status-dot"></div>
+                                        <span>在線</span>
+                                    </div>
+                                    <div class="site-action">
+                                        <i class="fas fa-external-link-alt"></i>
+                                    </div>
+                                </a>
+                            </div>
+                            
+                            <div class="sites-row">
+                                <a href="https://gowu88.com/" target="_blank" class="site-card">
+                                    <div class="card-glow"></div>
+                                    <div class="site-number">07</div>
+                                    <div class="site-content">
+                                        <div class="site-name">WU88 分站</div>
+                                        <div class="site-url">gowu88.com</div>
+                                    </div>
+                                    <div class="site-status online">
+                                        <div class="status-dot"></div>
+                                        <span>在線</span>
+                                    </div>
+                                    <div class="site-action">
+                                        <i class="fas fa-external-link-alt"></i>
+                                    </div>
+                                </a>
+                                
+                                <a href="https://moneywu88.com/" target="_blank" class="site-card">
+                                    <div class="card-glow"></div>
+                                    <div class="site-number">08</div>
+                                    <div class="site-content">
+                                        <div class="site-name">WU88 分站</div>
+                                        <div class="site-url">moneywu88.com</div>
+                                    </div>
+                                    <div class="site-status online">
+                                        <div class="status-dot"></div>
+                                        <span>在線</span>
+                                    </div>
+                                    <div class="site-action">
+                                        <i class="fas fa-external-link-alt"></i>
+                                    </div>
+                                </a>
+                                
+                                <a href="https://panwu88.com/" target="_blank" class="site-card">
+                                    <div class="card-glow"></div>
+                                    <div class="site-number">09</div>
+                                    <div class="site-content">
+                                        <div class="site-name">WU88 分站</div>
+                                        <div class="site-url">panwu88.com</div>
+                                    </div>
+                                    <div class="site-status online">
+                                        <div class="status-dot"></div>
+                                        <span>在線</span>
+                                    </div>
+                                    <div class="site-action">
+                                        <i class="fas fa-external-link-alt"></i>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                
-                <!-- 武財神分站區塊 -->
-                <div class="footer-column footer-right">
-                    <h3>武財神各分站</h3>
-                    <ul class="footer-links">
-                        <li><a href="https://1wu88.com/" target="_blank">1-WU88武財神</a></li>
-                        <li><a href="https://anwu88.com/" target="_blank">2-WU88武財神</a></li>
-                        <li><a href="https://betwu88.com/" target="_blank">3-WU88武財神</a></li>
-                        <li><a href="https://biwu88.com/" target="_blank">4-WU88武財神</a></li>
-                        <li><a href="https://funwu88.com/" target="_blank">5-WU88武財神</a></li>
-                        <li><a href="https://gamewu88.com/" target="_blank">6-WU88武財神</a></li>
-                        <li><a href="https://gowu88.com/" target="_blank">7-WU88武財神</a></li>
-                        <li><a href="https://moneywu88.com/" target="_blank">8-WU88武財神</a></li>
-                        <li><a href="https://panwu88.com/" target="_blank">9-WU88武財神</a></li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- 版權資訊 -->
-            <div class="footer-bottom">
-                <p>&copy; 2025 2025 Wu88武財神娛樂城 All rights reserved.</p>
             </div>
         </div>
+
+        <!-- 底部版權區 -->
+        <div class="footer-bottom">
+            <div class="bottom-gradient"></div>
+            <div class="container">
+                <div class="bottom-content">
+                    <div class="bottom-left">
+                        <div class="copyright-info">
+                            <div class="copyright-main">
+                                <div class="copyright-icon">
+                                    <i class="fas fa-shield-check"></i>
+                                </div>
+                                <div class="copyright-text">
+                                    <div class="copyright-title">© 2025 WU88武財神娛樂城</div>
+                                    <div class="copyright-subtitle">版權所有 · 保留一切權利</div>
+                                </div>
+                            </div>
+                            <div class="copyright-warning">
+                                <i class="fas fa-exclamation-triangle"></i>
+                                <span>本網站僅供娛樂，請理性遊戲，未滿18歲禁止進入</span>
+                            </div>
+                        </div>
+                        
+                        <div class="bottom-links">
+                            <a href="#" class="bottom-link">
+                                <i class="fas fa-file-contract"></i>
+                                <span>使用條款</span>
+                            </a>
+                            <a href="privacy-policy.html" class="bottom-link">
+                                <i class="fas fa-user-shield"></i>
+                                <span>隱私政策</span>
+                            </a>
+                            <a href="#" class="bottom-link">
+                                <i class="fas fa-balance-scale"></i>
+                                <span>責任博彩</span>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="bottom-center">
+                        <div class="certification-badges">
+                            <div class="badge-item">
+                                <div class="badge-icon">
+                                    <i class="fas fa-certificate"></i>
+                                </div>
+                                <div class="badge-text">
+                                    <div class="badge-title">官方認證</div>
+                                    <div class="badge-desc">合法經營</div>
+                                </div>
+                            </div>
+                            <div class="badge-item">
+                                <div class="badge-icon">
+                                    <i class="fas fa-lock"></i>
+                                </div>
+                                <div class="badge-text">
+                                    <div class="badge-title">安全加密</div>
+                                    <div class="badge-desc">SSL保護</div>
+                                </div>
+                            </div>
+                            <div class="badge-item">
+                                <div class="badge-icon">
+                                    <i class="fas fa-award"></i>
+                                </div>
+                                <div class="badge-text">
+                                    <div class="badge-title">優質服務</div>
+                                    <div class="badge-desc">24H客服</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bottom-right">
+                        <div class="cta-section">
+                            <div class="cta-text">
+                                <div class="cta-title">準備好開始了嗎？</div>
+                                <div class="cta-subtitle">立即加入武財神大家庭</div>
+                            </div>
+                            <div class="cta-buttons">
+                                <a href="https://pc.wu88.live/?promotionId=SEO1689" target="_blank" rel="noopener noreferrer" class="cta-btn primary">
+                                    <div class="btn-icon">
+                                        <i class="fas fa-rocket"></i>
+                                    </div>
+                                    <div class="btn-content">
+                                        <span class="btn-text">立即遊戲</span>
+                                        <span class="btn-subtext">開始贏錢</span>
+                                    </div>
+                                    <div class="btn-arrow">
+                                        <i class="fas fa-arrow-right"></i>
+                                    </div>
+                                </a>
+                                <a href="https://line.me/R/ti/p/@744owect" target="_blank" rel="noopener noreferrer" class="cta-btn secondary">
+                                    <div class="btn-icon">
+                                        <i class="fab fa-line"></i>
+                                    </div>
+                                    <div class="btn-content">
+                                        <span class="btn-text">客服諮詢</span>
+                                        <span class="btn-subtext">即時幫助</span>
+                                    </div>
+                                    <div class="btn-arrow">
+                                        <i class="fas fa-arrow-right"></i>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 背景裝飾與效果 -->
+        <div class="footer-effects">
+            <div class="sparkle-effect">
+                <div class="sparkle s1"></div>
+                <div class="sparkle s2"></div>
+                <div class="sparkle s3"></div>
+                <div class="sparkle s4"></div>
+                <div class="sparkle s5"></div>
+                <div class="sparkle s6"></div>
+                <div class="sparkle s7"></div>
+                <div class="sparkle s8"></div>
+            </div>
+
+        </div>
     </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // 禁用彈窗提示
+        window.alert = function() {};
+        window.confirm = function() {};
+        window.prompt = function() {};
+        
+        // 禁用 beforeunload 事件
+        window.onbeforeunload = null;
+        
+        // 為按鈕添加點擊事件處理
+        document.querySelectorAll('.auth-buttons a').forEach(button => {
+            button.addEventListener('click', (e) => {
+                // 防止默認行為
+                e.preventDefault();
+                // 直接打開新窗口
+                window.open(button.href, '_blank', 'noopener,noreferrer');
+            });
+        });
+    </script>
 </body>
 </html> 
